@@ -9,12 +9,19 @@ function App() {
   // const [modal,showModal]=useState(false);
   const [projects,setProjects]=useState([]);
   const handleDelete= (id) => {
-    axios.delete('http://localhost:8000/blogs/'+id)
+    axios.delete('http://localhost:8000/allprojects/'+id)
      setProjects(projects.filter(project => project.id !== id));
+  }
+  const statusChange=(id)=>{
+     console.log("Clicked")
+      axios.get('http://localhost:8000/allprojects/'+id)
+     setProjects(projects.find(project=>project.id===id));
+      setProjects(!project.isCompleted)
+    
   }
  
   useEffect(()=>{
-    axios.get('http://localhost:8000/blogs')
+    axios.get('http://localhost:8000/allprojects')
     .then((res)=>{
       setProjects(res.data)
     }).catch(err=>{
@@ -28,7 +35,7 @@ function App() {
       projects.map(project=>(
       <div key={project.id}>
        
-      <SingleProject  project={project} handleDelete={handleDelete} />
+      <SingleProject  project={project} handleDelete={handleDelete}  statusChange={statusChange}/>
         </div>
 ))
 }

@@ -1,0 +1,19 @@
+const Create=()=>{
+return(
+    <div>
+    <div className="mx-auto xl:max-w-2xl max-w-xl border border-gray-100 bg-white mt-32 rounded-xl">
+    <h1 class="text-2xl font-serif mt-8">Add a Project</h1>
+    <input type="text" placeholder="Enter a title" class="placeholder-gray-800 py-1 xl:px-24 px-12 border-b-2 border-gray-100 rounded-sm" onChange="title"/><br></br>
+    <textarea class="xl:w-3/4 w-full px-3 py-3 text-gray-700 border rounded-lg focus:outline-none mt-1" rows="4" v-model="details" placeholder="Enter a description">Enter a Description</textarea><br></br>
+    <button class="px-4 py-1 rounded-xl border-none bg-gradient-to-r from-green-400 to-blue-500 text-white font-serif fold-bold w-32 mt-1">SEND</button>
+    </div>
+    
+    </div>
+
+
+   
+)
+}
+
+
+export default Create;

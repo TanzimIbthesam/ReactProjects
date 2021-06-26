@@ -20,7 +20,7 @@ const SingleProject=({project,handleDelete,statusChange})=>{
            
             </div>
             <div className="p-3 ">
-                        <span onClick={()=>{statusChange()}}  class="material-icons cursor-pointer hover:text-gray-300 ">done</span>
+                        <span onClick={()=>{statusChange(project.id)}}  class="material-icons cursor-pointer hover:text-gray-300 ">done</span>
                         <span class="material-icons cursor-pointer hover:text-gray-300">edit</span>
                         <span onClick={()=>handleDelete(project.id)}  class="material-icons cursor-pointer hover:text-gray-300">delete</span>
                         

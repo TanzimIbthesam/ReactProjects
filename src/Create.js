@@ -5,10 +5,11 @@ const Create=()=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const[isCompleted,setCompleted]=useState(false);
+    const [id,setId]=useState(Math.floor(Math.random() *1000))
     const history=useHistory();
     const handleClick=(e)=>{
         e.preventDefault();
-        const project={title,description,isCompleted};
+        const project={id,title,description,isCompleted};
         
         axios.post(' http://localhost:8000/allprojects',project)
         .then((response=>console.log(response)))

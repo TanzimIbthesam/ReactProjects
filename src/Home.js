@@ -25,18 +25,22 @@ const Home=()=> {
     axios.delete('http://localhost:8000/allprojects/'+id)
      setProjects(projects.filter(project => project.id !== id));
   }
-  const statusChange=(project,id)=>{
-  
-     const newProjects = projects;
+  const statusChange=(id)=>{
+    //   const completed={isCompleted:!isCompleted}
+   axios.patch(`http://localhost:8000/allprojects/${id}`,{
+    isCompleted: projects.isCompleted =! projects.isCompleted 
+  })
+   const newProjects = projects;
+ newProjects.find((newProject) => {
+     return newProject.id === id;
+     
+     
+   });
+//   p.isCompleted =! p.isCompleted
+    //  setProjects([...newProjects]);
     
-    axios.patch(`http://localhost:8000/allprojects/${id}`)
-      newProjects.forEach((newProject) => {
-       
-        if (newProject.id === project.id) {
-          newProject.isCompleted = !newProject.isCompleted;
-        }
-      });
-      setProjects([...newProjects]);
+    //   console.log(id)
+    
     
     
 }

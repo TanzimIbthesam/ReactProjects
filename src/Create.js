@@ -4,8 +4,8 @@ import axios from "axios";
 const Create=()=>{
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const[isCompleted,setCompleted]=useState(false);
-    const [id,setId]=useState(Math.floor(Math.random() *1000))
+    const[isCompleted]=useState(false);
+    const [id]=useState(Math.floor(Math.random() *1000))
     const history=useHistory();
     const handleClick=(e)=>{
         e.preventDefault();

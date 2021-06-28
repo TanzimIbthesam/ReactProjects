@@ -27,6 +27,7 @@ const Home=()=> {
   }
   const statusChange=(id)=>{
     //   const completed={isCompleted:!isCompleted}
+    
    axios.patch(`http://localhost:8000/allprojects/${id}`,{
     isCompleted: projects.isCompleted =! projects.isCompleted 
   })
@@ -37,7 +38,7 @@ const Home=()=> {
      
    });
 //   p.isCompleted =! p.isCompleted
-    //  setProjects([...newProjects]);
+      setProjects([...newProjects]);
     
     //   console.log(id)
     

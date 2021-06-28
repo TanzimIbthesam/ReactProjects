@@ -13,14 +13,16 @@ const SingleProject=({project,handleDelete,statusChange})=>{
    
    
  return (
-    <div className="bg-white py-1  border-l-4 border-pink-600 rounded-md xl:w-1/3 w-full mx-auto  mt-3 ">
+    // <div className="bg-white py-1  border-l-4 border-pink-600 rounded-md xl:w-1/3 w-full mx-auto  mt-3 ">
+    <div className={`bg-white py-1  border-l-4  rounded-md xl:w-1/3 w-full mx-auto  mt-3 ${project.isCompleted ? "border-green-400" : "border-pink-600"}`}>
         <div className="flex justify-between">
         <div>
             <p className="text-black font-serif text-center xl:text-left pl-4 pt-4 text-md font-bold cursor-pointer" onClick={showDetails}>{project.title}</p>
            
             </div>
-            <div className="p-3 ">
+            <div className="p-3">
                         <span onClick={()=>{statusChange(project.id)}}  class="material-icons cursor-pointer hover:text-gray-300 ">done</span>
+                        
                         <span class="material-icons cursor-pointer hover:text-gray-300">edit</span>
                         <span onClick={()=>handleDelete(project.id)}  class="material-icons cursor-pointer hover:text-gray-300">delete</span>
                         

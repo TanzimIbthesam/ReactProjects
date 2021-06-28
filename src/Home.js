@@ -29,16 +29,19 @@ const Home=()=> {
     //   const completed={isCompleted:!isCompleted}
     
    axios.patch(`http://localhost:8000/allprojects/${id}`,{
-    isCompleted: projects.isCompleted =! projects.isCompleted 
+    // isCompleted: projects.isCompleted =! projects.isCompleted 
+     isCompleted:projects.isCompleted
+    
   })
-   const newProjects = projects;
- newProjects.find((newProject) => {
+    const newProjects = projects;
+    setProjects([...newProjects]);
+let p=newProjects.find((newProject) => {
      return newProject.id === id;
      
      
-   });
-//   p.isCompleted =! p.isCompleted
-      setProjects([...newProjects]);
+    });
+   
+      p.isCompleted = !p.isCompleted
     
     //   console.log(id)
     

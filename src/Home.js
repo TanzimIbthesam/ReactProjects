@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import './index.css'
 // import Modal from './Modal'
@@ -78,3 +77,4 @@ let p=newProjects.find((newProject) => {
 }
 
 export default Home;
+

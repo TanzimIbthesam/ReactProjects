@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Create from './Create'
  import Navbar from './Navbar'
   import Home from './Home'
+  import EditProject from "./EditProject";
 
 const AllRouter=()=>{
     return(
@@ -16,6 +17,9 @@ const AllRouter=()=>{
               </Route>
               <Route path="/create">
                 <Create />
+              </Route>
+              <Route path="/allprojects/:id">
+                <EditProject />
               </Route>
             </Switch>
           </div>

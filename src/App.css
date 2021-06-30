@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+.filterednav{
+  @apply mx-auto max-w-xl flex 
+}
+.filterednav button{
+ @apply  font-sans font-medium text-gray-300  pl-2 text-base
+}
+.filterednav button.active{
+  @apply text-gray-600
 }

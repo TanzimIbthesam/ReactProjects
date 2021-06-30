@@ -1,5 +1,6 @@
 import { useState } from "react";
 // import axios from 'axios'
+import { Link } from "react-router-dom";
  
 const SingleProject=({project,handleDelete,statusChange})=>{
     const [details,setDetails]=useState(false)
@@ -17,13 +18,17 @@ const SingleProject=({project,handleDelete,statusChange})=>{
     <div className={`bg-white py-1  border-l-4  rounded-md xl:w-1/3 w-full mx-auto  mt-3 ${project.isCompleted ? "border-green-400" : "border-pink-600"}`}>
         <div className="flex justify-between">
         <div>
-            <p className="text-black font-serif text-center xl:text-left pl-4 pt-4 text-md font-bold cursor-pointer" onClick={showDetails}>{project.title}</p>
+      
+            <p className="text-black font-serif text-center xl:text-left pl-4 pt-4 text-md font-bold cursor-pointer" 
+           onClick={showDetails}>{project.title}
+           </p>
            
+
             </div>
             <div className="p-3">
                         <span onClick={()=>{statusChange(project.id)}}  class="material-icons cursor-pointer hover:text-gray-300 ">done</span>
-                        
-                        <span class="material-icons cursor-pointer hover:text-gray-300">edit</span>
+                        <Link to={`/allprojects/${project.id}`}> <span class="material-icons cursor-pointer hover:text-gray-300">edit</span></Link> 
+                       
                         <span onClick={()=>handleDelete(project.id)}  class="material-icons cursor-pointer hover:text-gray-300">delete</span>
                         
 

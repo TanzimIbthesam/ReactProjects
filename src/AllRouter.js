@@ -1,6 +1,7 @@
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 // import App from './App'
-import Create from './Create'
+// import Create from './Create'
+import CreateTwo from './CreateTwo'
  import Navbar from './Navbar'
   import Home from './Home'
   import EditProject from "./EditProject";
@@ -16,7 +17,7 @@ const AllRouter=()=>{
                 <Home />
               </Route>
               <Route path="/create">
-                <Create />
+                <CreateTwo />
               </Route>
               <Route path="/allprojects/:id">
                 <EditProject />

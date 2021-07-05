@@ -2,9 +2,14 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 const Create=()=>{
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const[isCompleted]=useState(false);
+     const [title, setTitle] = useState('');
+     const [description, setDescription] = useState('');
+     const[isCompleted]=useState(false);
+    // const [project,setProject]=useState({
+    //      title:'',
+    //      description:'',
+    //      isCompleted:false
+    // })
     const [id]=useState(Math.floor(Math.random() *1000))
     const history=useHistory();
     const handleClick=(e)=>{

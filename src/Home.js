@@ -3,11 +3,16 @@ import './index.css'
 // import Modal from './Modal'
 import axios from 'axios'
 import SingleProject from './SingleProject'
-// import AllRouter from './AllRouter';
-// import Tanzim from './Tanzim'
+import FilteredNav from './FilteredNav';
+
 const Home=()=> {
 
   const [projects,setProjects]=useState([]);
+  const [currentFilter,setCurrentFilter]=useState('all');
+
+  const updateFilter=(newFilter)=>{
+    setCurrentFilter(newFilter)
+  }
   //Fetch Projects 
   // const fetchProjects=async()=>{
   //   const res=await axios.get('http://localhost:8000/allprojects/')
@@ -29,25 +34,19 @@ const Home=()=> {
     
    axios.patch(`http://localhost:8000/allprojects/${id}`,{
     // isCompleted: projects.isCompleted =! projects.isCompleted 
-     isCompleted:projects.isCompleted
+     isCompleted: projects.isCompleted =! projects.isCompleted
     
   })
-    const newProjects = projects;
-    setProjects([...newProjects]);
-let p=newProjects.find((newProject) => {
+      const newProjects = projects;
+      setProjects([...newProjects]);
+let p=projects.find((newProject) => {
      return newProject.id === id;
-     
-     
-    });
-   
-      p.isCompleted = !p.isCompleted
-    
-    //   console.log(id)
-    
-    
-    
+     });
+   p.isCompleted = !p.isCompleted
 }
+
  // Fetch Projects 
+
 
   useEffect(()=>{
     axios.get('http://localhost:8000/allprojects')
@@ -59,18 +58,55 @@ let p=newProjects.find((newProject) => {
     })
    
   },[])
-  return (
-    <div className="App">
-      {/* <AllRouter /> */}
-      {
-      projects.map(project=>(
+  let jsx=(
+   
+    projects.map(project=>(
+      
       <div key={project.id}>
        
       <SingleProject  project={project} handleDelete={handleDelete}  statusChange={statusChange} />
      
         </div>
 ))
-}
+
+  )
+   if(currentFilter==="onGoing"){
+   jsx=projects.filter(AllProject=>!AllProject.isCompleted).map(project=>(
+      
+       <div key={project.id}>
+       
+      <SingleProject  project={project} handleDelete={handleDelete}  statusChange={statusChange} />
+     
+        </div>
+ ))
+      
+   }else if(currentFilter==="completed"){
+     jsx=projects.filter(AllProject=>AllProject.isCompleted).map(project=>(
+      
+      <div key={project.id}>
+       
+       <SingleProject  project={project} handleDelete={handleDelete}  statusChange={statusChange} />
+     
+         </div>
+ ))
+
+   }else{
+     jsx=projects.map(project=>(
+      
+      <div key={project.id}>
+       
+       <SingleProject  project={project} handleDelete={handleDelete}  statusChange={statusChange} />
+     
+         </div>
+ ))
+
+
+   }
+  return (
+    <div className="App">
+      {/* <AllRouter /> */}
+      <FilteredNav updateFilter={updateFilter} current={currentFilter} />
+      {jsx}
       
     </div>
   );

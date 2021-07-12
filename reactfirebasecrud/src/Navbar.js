@@ -25,6 +25,11 @@ const Navbar=()=>{
             <Link to="/login">Login</Link>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+             <button class="px-6 py-1 bg-red-400 text-white font-serif">Logout</button>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const Login=()=>{
+	const [email,setEmail]=useState('');
+	const [password,setPassword]=useState('');
+	const handleSubmit=(e)=>{
+		e.preventDefault();
+          console.log(email,password);
+	}
+
      return(
          
          <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -13,18 +22,27 @@ const Login=()=>{
 
 			<div class="rounded bg-white max-w-md  overflow-hidden shadow-xl p-5">
 
-				<form class="space-y-4" action="#" method="POST">
+				<form onSubmit={handleSubmit}>
 					<input type="hidden" name="remember" value="true"/>
 					<div class="rounded-md shadow-sm -space-y-px">
 						<div class="grid gap-6">
 							<div class="col-span-12">
-								<label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-								<input type="text" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+								<label for="first_name" class="block text-sm font-medium text-gray-700">Email</label>
+								<input type="email" 
+								onChange={(e)=>setEmail(e.target.value)}
+								
+								class="mt-1 focus:ring-indigo-500 
+								focus:border-indigo-500 block 
+								w-full shadow-sm sm:text-sm
+								 border-gray-300 rounded-md"/>
 							</div>
 
 							<div class="col-span-12">
-								<label for="email_address" class="block text-sm font-medium text-gray-700">Email address</label>
-								<input type="text" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+								<label for="email_address" class="block text-sm font-medium text-gray-700">Password</label>
+								<input type="text" name="email_address" id="email_address" autocomplete="email" 
+								  onChange={(e)=>setPassword(e.target.value)}
+								class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 
+								block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
 							</div>
 						</div>
 					</div>

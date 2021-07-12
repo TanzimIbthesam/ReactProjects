@@ -1,13 +1,12 @@
 
-import './index.css'
+
 // import Login from './Login';
-import Register from './Register';
+import AllRouter from './AllRouter';
 
 function App() {
   return (
     <div className="App">
-      
-      <Register />
+      <AllRouter />
     </div>
   );
 }

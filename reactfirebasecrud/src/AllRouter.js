@@ -1,0 +1,33 @@
+import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
+import Navbar from "./Navbar";
+import Register from "./Register";
+
+const AllRouter=()=>{
+    return(
+        <Router>
+             <div>
+        <Navbar />
+        <Switch>
+        <Route exact path="/">
+                 <Home />
+            </Route>
+            <Route path="/login">
+                 <Login />
+            </Route>
+            <Route path="/register">
+                 <Register />
+            </Route>
+        </Switch>
+    </div>
+
+        </Router>
+       
+
+    )
+  
+
+}
+
+export default AllRouter;

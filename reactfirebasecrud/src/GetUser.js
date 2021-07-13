@@ -5,6 +5,7 @@ const GetUser=()=>{
     const [user,SetUser]=useState('');
       useEffect(()=>{
           auth.onAuthStateChanged(user=>{
+              //Get user added
               if(user){
                   SetUser(user)
               }else{

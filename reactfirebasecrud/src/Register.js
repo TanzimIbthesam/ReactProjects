@@ -1,11 +1,23 @@
 import { useState } from "react";
-
+import { auth } from "./firebase/config";
+import {useHistory} from 'react-router-dom'
+// import {auth} from './firebase/config'
 const Register=()=>{
     const [email,setEmail]=useState('');
 	const [password,setPassword]=useState('');
-    const handleSubmit=(e)=>{
+    const history=useHistory();
+    const  handleSubmit=async(e)=>{
 		e.preventDefault();
-          console.log(email,password);
+      
+       try {
+         
+        const res=await auth.createUserWithEmailAndPassword(email,password)
+        console.log(res.user.email);
+        history.push('/');
+    } catch (error) {
+        console.log(error.message);
+    }
+       
 	}
         return(
             <div class="mx-auto container flex items-center" id="nav">
@@ -56,39 +68,12 @@ const Register=()=>{
                                 />
                             </div>
                         </div>
-
-                        <div class="mb-6">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <label class="block text-gray-500 font-bold" for="remember">
-                                        <input class="ml-2 leading-tight" type="checkbox" id="remember" name="remember"/>
-                                        <span class="text-sm">
-                                            remember me
-                                        </span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <a class="font-bold text-sm text-orange-500 hover:text-orange-800" href="#password-request">
-                                        forgot password
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4 text-center">
-                            <button class="transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Login
-                            </button>
-                        </div>
+                          <button className="bg-red-400 text-white px-6 py-1 font-serif">Register</button>
                         
-                        <div class="mt-8">
-                            <p class="text-sm">
-                                no account
-                                <a class="font-bold text-sm text-orange-500 hover:text-orange-800" href="#register">
-                                    sign up
-                                </a>
-                            </p>
-                        </div>
+
+                        
+                        
+                       
                         
                     </form>
                     </div>

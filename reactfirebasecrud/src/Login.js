@@ -1,11 +1,22 @@
 import { useState } from "react";
-
+import { auth } from "./firebase/config";
+import {useHistory} from 'react-router-dom'
 const Login=()=>{
 	const [email,setEmail]=useState('');
 	const [password,setPassword]=useState('');
-	const handleSubmit=(e)=>{
+	const history=useHistory()
+	const  handleSubmit=async(e)=>{
 		e.preventDefault();
-          console.log(email,password);
+      
+       try {
+         
+        const res=await auth.signInWithEmailAndPassword(email,password)
+        console.log(res.user.email);
+        history.push('/');
+    } catch (error) {
+        console.log(error.message);
+    }
+       
 	}
 
      return(
@@ -39,7 +50,7 @@ const Login=()=>{
 
 							<div class="col-span-12">
 								<label for="email_address" class="block text-sm font-medium text-gray-700">Password</label>
-								<input type="text" name="email_address" id="email_address" autocomplete="email" 
+								<input type="password" name="email_address" id="email_address" autocomplete="email" 
 								  onChange={(e)=>setPassword(e.target.value)}
 								class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 
 								block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>

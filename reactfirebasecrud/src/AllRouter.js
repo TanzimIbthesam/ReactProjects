@@ -20,7 +20,7 @@ const AllRouter=()=>{
     return(
         <Router>
              <div>
-        <Navbar user={user} />
+        <Navbar  />
         <Switch>
         <Route exact path="/">
                  <Home user={user} />

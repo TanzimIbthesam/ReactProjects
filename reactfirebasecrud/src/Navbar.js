@@ -1,9 +1,10 @@
  import {  useHistory,Link } from "react-router-dom";
 import { auth } from "./firebase/config";
+import getUser from "./GetUser";
 
-const Navbar=({user})=>{
+const Navbar=()=>{
     const history=useHistory()
-      
+    const user=getUser();
     const logOut=async(e)=>{
       e.preventDefault()
      

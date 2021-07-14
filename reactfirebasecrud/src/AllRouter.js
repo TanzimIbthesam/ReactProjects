@@ -25,11 +25,11 @@ const AllRouter=()=>{
         <Route exact path="/">
                  <Home user={user} />
             </Route>
-            <Route path="/login">
-                 <Login />
+            <Route path="/login" component={Login}>
+                 
             </Route>
-            <Route path="/register">
-                 <Register />
+            <Route path="/register" component={Register}>
+                 
             </Route>
         </Switch>
     </div>

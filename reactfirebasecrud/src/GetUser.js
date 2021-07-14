@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { auth } from "./firebase/config";
 
 const GetUser=()=>{
@@ -8,6 +9,7 @@ const GetUser=()=>{
               //Get user added
               if(user){
                   SetUser(user)
+                 
               }else{
                   SetUser(null)
               }

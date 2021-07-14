@@ -1,4 +1,4 @@
- import {  useHistory,Link } from "react-router-dom";
+ import {  useHistory,Link} from "react-router-dom";
 import { auth } from "./firebase/config";
 import getUser from "./GetUser";
 
@@ -18,6 +18,7 @@ const Navbar=()=>{
         
       
     }
+   
    return (
        <div>
          <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 mb-3">
